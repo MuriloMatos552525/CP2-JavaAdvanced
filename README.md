@@ -148,8 +148,8 @@ A resposta conterá o token JWT:
 **Body (JSON):**
 ```json
 {
-    "diplomadoId": 1,  // Substitua com o ID do diplomado criado
-    "cursoId": 1,      // Substitua com o ID do curso criado
+    "diplomadoId": 1,  
+    "cursoId": 1,     
     "dataConclusao": "2024-01-15",
     "sexoReitor": "M",
     "nomeReitor": "Fulano de Tal"
