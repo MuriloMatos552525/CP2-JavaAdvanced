@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'br.com.fiap'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starter dependencies for basic web application setup and security
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA for database interaction
+    implementation 'org.springframework.boot:spring-boot-starter-security' // Spring Security for authentication/authorization
+    implementation 'org.springframework.boot:spring-boot-starter-validation' // For input validation
+    implementation 'org.springframework.boot:spring-boot-starter-web' // To create REST APIs
+
+    // JWT dependencies for token generation and validation
+    implementation 'com.auth0:java-jwt:4.4.0' // Main library for creating and verifying JWTs
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5' // Provides JJWT implementation
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5' // For working with JSON and JWT
+
+    // Lombok to reduce boilerplate code (e.g., getters, setters, etc.)
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // H2 in-memory database for development and testing purposes
+    runtimeOnly 'com.h2database:h2'
+
+    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' // Provides testing framework
+    testImplementation 'org.springframework.security:spring-security-test' // For testing security-related functionality
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher' // Enables JUnit platform for testing
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
