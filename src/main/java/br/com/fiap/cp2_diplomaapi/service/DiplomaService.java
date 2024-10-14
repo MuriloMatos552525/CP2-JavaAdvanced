@@ -34,13 +34,11 @@ public class DiplomaService {
                 .orElseThrow(() -> new ResourceNotFoundException("Curso não encontrado com ID: " + request.getCursoId()));
 
         Diploma diploma = new Diploma();
-        diploma.setId(UUID.randomUUID());
+        // O UUID será gerado automaticamente pelo JPA
         diploma.setDiplomado(diplomado);
         diploma.setCurso(curso);
         diploma.setDataConclusao(request.getDataConclusao());
-
-        // Agora, estamos mapeando o valor diretamente para o enum Sexo
-        diploma.setSexoReitor(Sexo.valueOf(String.valueOf(request.getSexoReitor()))); // Certifique-se de que o DTO envia "M" ou "F"
+        diploma.setSexoReitor(Sexo.valueOf(String.valueOf(request.getSexoReitor())));
         diploma.setNomeReitor(request.getNomeReitor());
 
         diplomaRepository.save(diploma);

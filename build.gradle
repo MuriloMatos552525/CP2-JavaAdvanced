@@ -41,6 +41,8 @@ dependencies {
 
     // H2 in-memory database for development and testing purposes
     runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc:12.8.1.jre11'
+
 
     // Test dependencies
     testImplementation 'org.springframework.boot:spring-boot-starter-test' // Provides testing framework
