@@ -184,11 +184,9 @@ A resposta conterá o token JWT:
 6. **Obter Diploma por ID:**
    - `GET` `/api/diplomas/{uuid}` para visualizar o diploma criado.
 
-### Exemplo de Headers:
-```plaintext
-Authorization: Bearer seu_token_jwt
-Content-Type: application/json
-```
+### Testes do postman:
+
+`https://api.postman.com/collections/39004274-3b5dbf88-cab7-47c7-909e-40a73ae29239?access_key=PMAT-01JA6J6Q201C2VTTHF9165RS1N`
 
 ---
 
